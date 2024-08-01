@@ -13,6 +13,7 @@ import mic_icon from './mic.png'
 import plus_icon from './plus.png'
 import question_icon from './question.png'
 import send_icon from './send.png'
+import user_icon from './user.png'
 export const assets={
     setting_icon,
     bulb_icon,
@@ -27,7 +28,9 @@ export const assets={
     plus_icon,
     question_icon,
     send_icon,
-    bard_icon
+    bard_icon,
+    user_icon
+
 
     
 

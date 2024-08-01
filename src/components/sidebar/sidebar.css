@@ -9,6 +9,7 @@
     transition: width 0.3s ease; /* Smooth transition */
 }
 
+
 .sidebar.extended {
     width: 250px; /* Expanded width */
 }
@@ -39,6 +40,7 @@
 .sidebar .recent {
     display: flex;
     flex-direction: column;
+    animation: fadeIn 1.5s;
 }
 
 .sidebar .recent-title {
@@ -82,4 +84,10 @@
 
 .sidebar .bottom-item:hover {
     background-color: #e2e6eb;
+}
+@media (max-width:400px) {
+    .sidebar{
+        display: none;
+    }
+    
 }
