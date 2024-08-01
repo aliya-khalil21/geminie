@@ -1,27 +1,42 @@
 import { createContext, useState } from "react";
-import run from "../config/geminie"; // Assuming run is a synchronous function
+import run from "../config/geminie"; 
 
 export const Context = createContext();
 
 const ContextProvider = (props) => {
-  const [data, setData] = useState(null);
+    //const [contextValue, setContextValue] = useState({});
+    const [input,setInput]=useState("");
+    const [recentPromt,setRecentPromt]=useState("")
+    const [previousPromt,setPreviousPrompts]=useState([]);
+    const [showResult,setShowResult]=useState(false);
+    const [loading, setLoading] = useState(false);
+    const [resultData,setResultData]=useState("")
 
-  const onSet = async (prompt) => {
-    const result = await run(prompt);
-    setData(result);
-  };
 
-  const contextValue = {
-    data,
-    onSet,
-  };
+    const onSent = async (prompt) => {
+        await run(input);
+    }
 
-  return (
-    <Context.Provider value={contextValue}>
-      {props.children}
-    </Context.Provider>
-  );
+    const contextValue={
+      previousPromt,
+      setPreviousPrompts,
+      onSent,
+      setRecentPromt,
+      recentPromt,
+      showResult,
+      loading,
+      resultData,
+      input,
+      setInput
+      
+
+    }
+
+    return (
+        <Context.Provider value={{ contextValue, onSent }}>
+            {props.children}
+        </Context.Provider>
+    );
 };
 
 export default ContextProvider;
-
