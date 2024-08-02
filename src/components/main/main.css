@@ -41,22 +41,19 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .main .cards {
-   max-height: 240px;
-    width: 30px;
-   display: flex;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-    padding: 20px;
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    gap: 20px; /* Space between cards */
+    padding: 20px; /* Padding inside the container */
+    margin: 0 auto; /* Center the container horizontally */
+    max-height: 240px; /* Limit the height of the container */
+    width: 100%; /* Ensure the container uses full width */
     margin-left: -100px;
-    
-    flex-direction: row;
 }
 
 .main .card {
-    width: 190px; /* Adjust to desired width */
-    padding: 70px;
+    padding: 22px; /* Adjust padding to fit content */
     background-color: #f0f4f9;
     border-radius: 10px;
     position: relative;
@@ -65,25 +62,29 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    overflow: hidden;
+    text-align: left;
+   
 }
 
 .main .card img {
     width: 25px;
-    padding: 2px;
+    height: auto; /* Maintain aspect ratio */
     background-color: white;
     border-radius: 20px;
-    align-self: flex-end;
-    margin-top: auto; /* Push the image to the bottom */
+    align-self: flex-end; /* Align image to the bottom right */
+    margin-top: 10px; /* Space above image */
 }
+
 .main .card p {
-    text-align: start;
     color: #585858;
     font-size: 16px;
-    
-   
-    margin: 0 0 10px 0;  margin-top: -50px;
-    /* Remove excessive margins */
+    word-wrap: break-word; /* Wrap long words */
+    overflow-wrap: break-word; /* Ensure long words break */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
 }
+
 
 
 
@@ -202,10 +203,18 @@
         background-position:800px 0px ;
     }
 }
-.result-data p{
+.result-data p {
     font-size: 17px;
-    font-weight: 300px;
-    line-height:1.8;
+    
+    line-height: 1.8;
+    white-space: pre-wrap; /* Ensures text wraps properly */
+    word-wrap: break-word; /* Breaks long words to fit within the container */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.result-data img{
+   width: 20px;
+   height: 20px;
 
 }
 @media (max-width:600px) {
